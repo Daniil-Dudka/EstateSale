@@ -6,18 +6,14 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "post")
+@Table(name = "property")
 public class Property {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    @Column (name = "id")
+    @Column (name = "id_property")
     private Long id;
-    @Column (name = "owner")
-    private String owner;
     @Column (name = "address")
     private String address;
-    @Column (name = "type")
-    private String type;
     @Column (name = "square")
     private long square;
     @Column (name = "price")
@@ -28,11 +24,9 @@ public class Property {
     public Property() {
     }
 
-    public Property(Long id, String owner, String address, String type, long square, long price, String description) {
+    public Property(Long id, String address, long square, long price, String description) {
         this.id = id;
-        this.owner = owner;
         this.address = address;
-        this.type = type;
         this.square = square;
         this.price = price;
         this.description = description;
@@ -46,28 +40,12 @@ public class Property {
         return id;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public long getSquare() {
