@@ -29,6 +29,9 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "role", referencedColumnName = "id_role")})
     private List<Role> roles;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Advertisement> advertisements;
+
 
 
 }

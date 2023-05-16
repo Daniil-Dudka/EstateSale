@@ -3,6 +3,8 @@ package com.example.saler.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Entity
 @Data
@@ -53,9 +55,12 @@ public class Property {
     }
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name = "id_type", referencedColumnName = "id_type")
     private Type type;
+
+    @OneToMany (mappedBy = "property", cascade = CascadeType.ALL)
+    private List<Advertisement> advertisements;
 
 
 }

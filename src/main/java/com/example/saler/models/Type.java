@@ -3,6 +3,8 @@ package com.example.saler.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "type")
@@ -15,7 +17,7 @@ public class Type {
     private String typeName;
 
 
-    @OneToOne(mappedBy = "type", cascade = CascadeType.ALL)
-    private Property property;
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
+    private List<Property> property;
 
 }

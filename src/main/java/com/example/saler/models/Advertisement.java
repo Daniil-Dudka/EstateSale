@@ -17,4 +17,12 @@ public class Advertisement {
     private long price;
     @Column (name = "description", columnDefinition = "text")
     private String description;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "id_property", referencedColumnName = "id_property")
+    private Property property;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "id_user", referencedColumnName = "id_user")
+    private User user;
 }
