@@ -74,6 +74,10 @@ public class Property {
         this.description = description;
     }
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "id_type", referencedColumnName = "id_type")
+    private Type type;
+
 
 }
 

@@ -13,4 +13,9 @@ public class Type {
     private Long id;
     @Column (name = "typeName")
     private String typeName;
+
+
+    @OneToOne(mappedBy = "type", cascade = CascadeType.ALL)
+    private Property property;
+
 }
